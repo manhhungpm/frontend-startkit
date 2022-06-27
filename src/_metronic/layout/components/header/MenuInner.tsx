@@ -20,7 +20,7 @@ export function MenuInner() {
         <MenuInnerWithSub
           title='Pages'
           to='/crafted/pages'
-          icon='/media/icons/duotune/general/gen022.svg'
+          fontIcon='bi-archive'
           hasArrow={true}
           menuPlacement='right-start'
           menuTrigger={`{default:'click', lg: 'hover'}`}
@@ -60,7 +60,7 @@ export function MenuInner() {
         <MenuInnerWithSub
           title='Accounts'
           to='/crafted/accounts'
-          icon='/media/icons/duotune/communication/com006.svg'
+          fontIcon='bi-person'
           hasArrow={true}
           menuPlacement='right-start'
           menuTrigger={`{default:'click', lg: 'hover'}`}
@@ -73,9 +73,9 @@ export function MenuInner() {
         <MenuInnerWithSub
           title='Errors'
           to='/error'
-          icon='/media/icons/duotune/technology/teh004.svg'
+          fontIcon='bi-sticky'
           hasArrow={true}
-          menuPlacement='bottom-start'
+          menuPlacement='right-start'
           menuTrigger={`{default:'click', lg: 'hover'}`}
         >
           <MenuItem to='/error/404' title='Error 404' hasBullet={true} />
@@ -86,7 +86,7 @@ export function MenuInner() {
         <MenuInnerWithSub
           title='Widgets'
           to='/crafted/widgets'
-          icon='/media/icons/duotune/general/gen025.svg'
+          fontIcon='bi-layers'
           hasArrow={true}
           menuPlacement='right-start'
           menuTrigger={`{default:'click', lg: 'hover'}`}

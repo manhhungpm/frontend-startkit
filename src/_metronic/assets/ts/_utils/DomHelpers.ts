@@ -126,7 +126,7 @@ function getElementParents(element: Element, selector: string) {
   }
 
   // Set up a parent array
-  const parents:Array<Element> = []
+  const parents: Array<Element> = []
 
   let el: Element | null = element
 

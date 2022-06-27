@@ -15,7 +15,7 @@ export const DefaultLayoutConfig: ILayout = {
   },
   header: {
     display: true, // Set true|false to show or hide Header
-    width: 'fixed', // Set fixed|fluid to change width type
+    width: 'fluid', // Set fixed|fluid to change width type
     left: 'menu',
     fixed: {
       desktop: true, // Set true|false to set fixed Header for desktop mode
@@ -27,7 +27,7 @@ export const DefaultLayoutConfig: ILayout = {
     display: true, // Set true|false to show or hide Mega Menu
   },
   aside: {
-    display: false,
+    display: true,
     theme: 'dark',
     menu: 'main',
     fixed: true,
@@ -42,7 +42,7 @@ export const DefaultLayoutConfig: ILayout = {
   },
   toolbar: {
     display: true, // Display toolbar
-    width: 'fixed', // Set fixed|fluid to change width type,
+    width: 'fluid', // Set fixed|fluid to change width type,
     fixed: {
       desktop: true,
       tabletAndMobileMode: true,
@@ -72,7 +72,7 @@ export const DefaultLayoutConfig: ILayout = {
     },
   },
   footer: {
-    width: 'fixed', // Set fixed|fluid to change width type
+    width: 'fluid', // Set fixed|fluid to change width type
   },
   pageTitle: {
     display: true,

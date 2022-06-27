@@ -10,7 +10,6 @@ import {
   ILayoutCSSVariables,
   IPageTitle,
 } from './LayoutModels'
-import {toAbsoluteUrl} from '../../helpers'
 import {DefaultLayoutConfig} from './DefaultLayoutConfig'
 
 const LAYOUT_CONFIG_KEY = process.env.REACT_APP_BASE_LAYOUT_CONFIG_KEY || 'LayoutConfig'
@@ -93,7 +92,7 @@ export class LayoutSetup {
     Array.from(document.body.attributes).forEach((attr) => {
       document.body.removeAttribute(attr.name)
     })
-    document.body.style.backgroundImage = `url(${toAbsoluteUrl('/media/patterns/header-bg.jpg')})`
+    document.body.setAttribute('style', '')
     document.body.setAttribute('id', 'kt_body')
     if (config.main?.body?.backgroundImage) {
       document.body.style.backgroundImage = `url('${config.main.body.backgroundImage}')`
@@ -153,7 +152,7 @@ export class LayoutSetup {
       if (typeOptions.heightAndTabletMobileMode) {
         bodyStyles += ` --kt-toolbar-height-tablet-and-mobile: ${typeOptions.heightAndTabletMobileMode};`
       }
-      document.body.style.cssText += bodyStyles
+      document.body.setAttribute('style', bodyStyles)
     }
   }
 

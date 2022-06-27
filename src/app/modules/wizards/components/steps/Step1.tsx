@@ -18,7 +18,7 @@ const Step1: FC = () => {
 
         <div className='text-gray-400 fw-bold fs-6'>
           If you need more info, please check out
-          <a href='#' className='link-primary fw-bolder'>
+          <a href='/dashboard' className='link-primary fw-bolder'>
             {' '}
             Help Page
           </a>
@@ -77,7 +77,7 @@ const Step1: FC = () => {
             </label>
           </div>
 
-          <div className='fv-plugins-message-container invalid-feedback'>
+          <div className='text-danger mt-2'>
             <ErrorMessage name='accountType' />
           </div>
         </div>

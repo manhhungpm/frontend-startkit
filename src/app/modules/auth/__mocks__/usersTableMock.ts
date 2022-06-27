@@ -13,7 +13,7 @@ export class UsersTableMock {
         refreshToken: 'access-token-f8c137a2c98743f48b643e71161d90aa',
       },
       roles: [1], // Administrator
-      pic: toAbsoluteUrl('/media/avatars/150-25.jpg'),
+      pic: toAbsoluteUrl('/media/avatars/150-2.jpg'),
       fullname: 'Sean S',
       firstname: 'Sean',
       lastname: 'Stark',

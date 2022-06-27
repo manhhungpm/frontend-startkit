@@ -94,6 +94,15 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
+                className={clsx(`nav-link`, {active: tab === 'PageTitle'})}
+                onClick={() => setTab('PageTitle')}
+                role='tab'
+              >
+                Page Title
+              </a>
+            </li>
+            <li className='nav-item'>
+              <a
                 className={clsx(`nav-link`, {active: tab === 'Aside'})}
                 onClick={() => setTab('Aside')}
                 role='tab'
@@ -177,6 +186,28 @@ const BuilderPage: React.FC = () => {
                   </div>
                 </div>
                 <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Left Content:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <select
+                      className='form-select form-select-solid'
+                      name='layout-builder[layout][header][width]'
+                      value={config.header.width}
+                      onChange={(e) =>
+                        updateData({
+                          header: {
+                            ...config.header,
+                            left: e.target.value as 'menu' | 'page-title',
+                          },
+                        })
+                      }
+                    >
+                      <option value='menu'>Menu</option>
+                      <option value='fixed'>Page title</option>
+                    </select>
+                    <div className='form-text text-muted'>Select header left content type.</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
                   <label className='col-lg-3 col-form-label text-lg-end'>Width:</label>
                   <div className='col-lg-9 col-xl-4'>
                     <select
@@ -224,6 +255,53 @@ const BuilderPage: React.FC = () => {
                   </div>
                 </div>
                 <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Fixed Toolbar:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <label className='form-check form-check-custom form-check-solid form-switch mb-5'>
+                      <input
+                        className='form-check-input'
+                        type='checkbox'
+                        name='layout-builder[layout][header][fixed][desktop]'
+                        checked={config.toolbar.fixed.desktop}
+                        onChange={() =>
+                          updateData({
+                            toolbar: {
+                              ...config.toolbar,
+                              fixed: {
+                                ...config.toolbar.fixed,
+                                desktop: !config.toolbar.fixed.desktop,
+                              },
+                            },
+                          })
+                        }
+                      />
+                      <span className='form-check-label text-muted'>Desktop</span>
+                    </label>
+
+                    <label className='form-check form-check-custom form-check-solid form-switch mb-3'>
+                      <input
+                        className='form-check-input'
+                        type='checkbox'
+                        checked={config.toolbar.fixed.tabletAndMobileMode}
+                        onChange={() =>
+                          updateData({
+                            toolbar: {
+                              ...config.toolbar,
+                              fixed: {
+                                ...config.toolbar.fixed,
+                                desktop: !config.toolbar.fixed.tabletAndMobileMode,
+                              },
+                            },
+                          })
+                        }
+                      />
+                      <span className='form-check-label text-muted'>Tablet & Mobile</span>
+                    </label>
+
+                    <div className='form-text text-muted'>Enable fixed toolbar</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
                   <label className='col-lg-3 col-form-label text-lg-end'>Width:</label>
                   <div className='col-lg-9 col-xl-4'>
                     <select
@@ -243,6 +321,53 @@ const BuilderPage: React.FC = () => {
                       <option value='fixed'>Fixed</option>
                     </select>
                     <div className='form-text text-muted'>Select layout width type.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={clsx('tab-pane', {active: tab === 'PageTitle'})}>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Display:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                      <input
+                        className='form-check-input'
+                        type='checkbox'
+                        name='layout-builder[layout][pageTitle][display]'
+                        checked={config.pageTitle?.display}
+                        onChange={() =>
+                          updateData({
+                            pageTitle: {
+                              ...config.pageTitle!,
+                              display: !config.pageTitle?.display,
+                            },
+                          })
+                        }
+                      />
+                    </div>
+                    <div className='form-text text-muted'>Display page title</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Breadcrumb:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                      <input
+                        className='form-check-input'
+                        type='checkbox'
+                        name='layout-builder[layout][pageTitle][breadCrumbs]'
+                        checked={config.pageTitle?.breadCrumbs}
+                        onChange={() =>
+                          updateData({
+                            pageTitle: {
+                              ...config.pageTitle!,
+                              display: !config.pageTitle?.breadCrumbs,
+                            },
+                          })
+                        }
+                      />
+                    </div>
+                    <div className='form-text text-muted'>Display page title</div>
                   </div>
                 </div>
               </div>
@@ -295,6 +420,124 @@ const BuilderPage: React.FC = () => {
                       </div>
                     </div>
                     <div className='form-text text-muted'>Display Aside</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Theme:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <select
+                      className='form-select form-select-solid'
+                      name='layout-builder[layout][aside][theme]'
+                      value={config.aside.theme}
+                      onChange={(e) =>
+                        updateData({
+                          aside: {
+                            ...config.aside,
+                            theme: e.target.value as 'dark' | 'light',
+                          },
+                        })
+                      }
+                    >
+                      <option value='dark'>Dark</option>
+                      <option value='light'>Light</option>
+                    </select>
+                    <div className='form-text text-muted'>Select header left content type.</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Fixed:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='switch switch-icon'>
+                      <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                        <input
+                          className='form-check-input'
+                          type='checkbox'
+                          name='layout-builder[layout][aside][fixed]'
+                          checked={config.aside.fixed}
+                          onChange={() =>
+                            updateData({
+                              aside: {
+                                ...config.aside,
+                                display: !config.aside.fixed,
+                              },
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className='form-text text-muted'>Enable fixed aside</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Minimize:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='switch switch-icon'>
+                      <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                        <input
+                          className='form-check-input'
+                          type='checkbox'
+                          name='layout-builder[layout][aside][minimize]'
+                          checked={config.aside.minimize}
+                          onChange={() =>
+                            updateData({
+                              aside: {
+                                ...config.aside,
+                                display: !config.aside.minimize,
+                              },
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className='form-text text-muted'>Enable aside minimization</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Minimized:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='switch switch-icon'>
+                      <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                        <input
+                          className='form-check-input'
+                          type='checkbox'
+                          name='layout-builder[layout][aside][minimized]'
+                          checked={config.aside.minimized}
+                          onChange={() =>
+                            updateData({
+                              aside: {
+                                ...config.aside,
+                                display: !config.aside.minimized,
+                              },
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className='form-text text-muted'>Default minimized aside</div>
+                  </div>
+                </div>
+                <div className='row mb-10'>
+                  <label className='col-lg-3 col-form-label text-lg-end'>Hoverable:</label>
+                  <div className='col-lg-9 col-xl-4'>
+                    <div className='switch switch-icon'>
+                      <div className='form-check form-check-custom form-check-solid form-switch mb-2'>
+                        <input
+                          className='form-check-input'
+                          type='checkbox'
+                          name='layout-builder[layout][aside][hoverable]'
+                          checked={config.aside.hoverable}
+                          onChange={() =>
+                            updateData({
+                              aside: {
+                                ...config.aside,
+                                display: !config.aside.hoverable,
+                              },
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className='form-text text-muted'>Enable hoverable minimized aside</div>
                   </div>
                 </div>
               </div>

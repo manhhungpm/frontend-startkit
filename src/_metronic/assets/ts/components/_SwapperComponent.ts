@@ -14,14 +14,14 @@ export class SwapperStore {
       return
     }
 
-    SwapperStore.store.set(instanceId, drawerComponentObj);
+    SwapperStore.store.set(instanceId, drawerComponentObj)
   }
 
   public static get(instanceId: string): SwapperComponent | undefined {
     if (!SwapperStore.has(instanceId)) {
       return
     }
-    return SwapperStore.store.get(instanceId);
+    return SwapperStore.store.get(instanceId)
   }
 
   public static remove(instanceId: string): void {
@@ -33,11 +33,11 @@ export class SwapperStore {
   }
 
   public static has(instanceId: string): boolean {
-    return SwapperStore.store.has(instanceId);
+    return SwapperStore.store.has(instanceId)
   }
 
   public static getAllInstances() {
-    return SwapperStore.store;
+    return SwapperStore.store
   }
 }
 

@@ -16,6 +16,12 @@ export function AsideMenuMain() {
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         fontIcon='bi-app-indicator'
       />
+        <AsideMenuItem
+            to='/test-redux'
+            icon='/media/icons/duotune/ecommerce/ecm001.svg'
+            title='Test redux'
+            fontIcon='bi-layers'
+        />
       <AsideMenuItem
         to='/builder'
         icon='/media/icons/duotune/general/gen019.svg'

@@ -3,17 +3,17 @@
 //
 
 .separator {
-    display: block;
-    height: 0;
-    border-bottom: 1px solid $border-color;
+  display: block;
+  height: 0;
+  border-bottom: 1px solid $border-color;
 
-    &.separator-dotted {
-        border-bottom-style: dotted;
-        border-bottom-color: $gray-300;
-    }
+  &.separator-dotted {
+    border-bottom-style: dotted;
+    border-bottom-color: $gray-300;
+  }
 
-    &.separator-dashed {
-        border-bottom-style: dashed;
-        border-bottom-color: $gray-300;
-    }
+  &.separator-dashed {
+    border-bottom-style: dashed;
+    border-bottom-color: $gray-300;
+  }
 }

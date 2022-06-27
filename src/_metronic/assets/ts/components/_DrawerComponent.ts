@@ -18,14 +18,14 @@ export class DrawerStore {
       return
     }
 
-    DrawerStore.store.set(instanceId, drawerComponentObj);
+    DrawerStore.store.set(instanceId, drawerComponentObj)
   }
 
   public static get(instanceId: string): DrawerComponent | undefined {
     if (!DrawerStore.has(instanceId)) {
       return
     }
-    return DrawerStore.store.get(instanceId);
+    return DrawerStore.store.get(instanceId)
   }
 
   public static remove(instanceId: string): void {
@@ -37,11 +37,11 @@ export class DrawerStore {
   }
 
   public static has(instanceId: string): boolean {
-    return DrawerStore.store.has(instanceId);
+    return DrawerStore.store.has(instanceId)
   }
 
   public static getAllInstances() {
-    return DrawerStore.store;
+    return DrawerStore.store
   }
 }
 
@@ -324,7 +324,7 @@ class DrawerComponent {
       if (!drawer) {
         drawer = new DrawerComponent(item, defaultDrawerOptions)
       }
-      drawer.element = item;
+      drawer.element = item
       drawer.hide()
     })
   }
@@ -358,7 +358,7 @@ class DrawerComponent {
             const item = el as HTMLElement
             const instance = DrawerComponent.getInstance(item.id)
             if (instance) {
-              instance.element = item;
+              instance.element = item
               instance.update()
             }
           })

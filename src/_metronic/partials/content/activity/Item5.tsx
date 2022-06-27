@@ -42,7 +42,7 @@ const Item5: FC = () => {
                 <img
                   alt='img'
                   className='rounded w-200px'
-                  src={toAbsoluteUrl('/media/demos/demo2.png')}
+                  src={toAbsoluteUrl('/media/demos/demo1.png')}
                 />
               </div>
 

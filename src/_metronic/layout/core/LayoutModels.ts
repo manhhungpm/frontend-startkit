@@ -98,7 +98,7 @@ export interface IPageTitle {
 export interface IMain {
   body?: {
     backgroundImage?: string
-    class?: string
+    class: string
   }
   primaryColor: string
   darkSkinEnabled: boolean

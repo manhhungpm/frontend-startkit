@@ -14,6 +14,7 @@ const Horizontal: FC = () => {
   const stepper = useRef<StepperComponent | null>(null)
   const [currentSchema, setCurrentSchema] = useState(createAccountSchemas[0])
   const [initValues] = useState<ICreateAccount>(inits)
+  const [isSubmitButton, setSubmitButton] = useState(false)
 
   const loadStepper = () => {
     stepper.current = StepperComponent.createInsance(stepperRef.current as HTMLDivElement)
@@ -24,6 +25,8 @@ const Horizontal: FC = () => {
       return
     }
 
+    setSubmitButton(stepper.current.currentStepIndex === stepper.current.totatStepsNumber! - 1)
+
     stepper.current.goPrev()
 
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex - 1])
@@ -33,6 +36,8 @@ const Horizontal: FC = () => {
     if (!stepper.current) {
       return
     }
+
+    setSubmitButton(stepper.current.currentStepIndex === stepper.current.totatStepsNumber! - 1)
 
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex])
 
@@ -84,11 +89,7 @@ const Horizontal: FC = () => {
 
           <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
             {() => (
-              <Form
-                className='mx-auto mw-600px w-100 pt-15 pb-10'
-                noValidate
-                id='kt_create_account_form'
-              >
+              <Form className='mx-auto mw-600px w-100 pt-15 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
                   <Step1 />
                 </div>
@@ -128,10 +129,8 @@ const Horizontal: FC = () => {
                   <div>
                     <button type='submit' className='btn btn-lg btn-primary me-3'>
                       <span className='indicator-label'>
-                        {stepper.current?.currentStepIndex !==
-                          stepper.current?.totatStepsNumber! - 1 && 'Continue'}
-                        {stepper.current?.currentStepIndex ===
-                          stepper.current?.totatStepsNumber! - 1 && 'Submit'}
+                        {!isSubmitButton && 'Continue'}
+                        {isSubmitButton && 'Submit'}
                         <KTSVG
                           path='/media/icons/duotune/arrows/arr064.svg'
                           className='svg-icon-3 ms-2 me-0'

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {FC} from 'react'
 import {KTSVG} from '../../../../../_metronic/helpers'
 import {Link} from 'react-router-dom'
@@ -36,7 +35,7 @@ const Step5: FC = () => {
               <h4 className='text-gray-800 fw-bolder'>We need your attention!</h4>
               <div className='fs-6 text-gray-600'>
                 To start using great tools, please, please
-                <a href='#' className='fw-bolder'>
+                <a href='/dashboard' className='fw-bolder'>
                   {' '}
                   Create Team Platform
                 </a>

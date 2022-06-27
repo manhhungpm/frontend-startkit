@@ -176,10 +176,10 @@ class MenuComponent {
 
   // Get item parent elements
   private _getItemParentElements = (item: HTMLElement) => {
-    const parents:Array<Element> = []
-    let parent:Element
+    const parents: Array<Element> = []
+    let parent: Element
     let i = 0
-    let buffer:HTMLElement = item
+    let buffer: HTMLElement = item
 
     do {
       parent = this._getItemParentElement(buffer)
@@ -230,14 +230,14 @@ class MenuComponent {
           },
         },
         {
-          name: 'preventOverflow'
+          name: 'preventOverflow',
         },
         {
           name: 'flip',
           options: {
             // altBoundary: true,
             // fallbackPlacements: flip,
-            flipVariations: false
+            flipVariations: false,
           },
         },
       ],
@@ -266,7 +266,7 @@ class MenuComponent {
   // Get item child elements
   private _getItemChildElements = (item: HTMLElement) => {
     const children: Array<Element> = []
-    let child:Element | null
+    let child: Element | null
     let i = 0
     let buffer = item
     do {

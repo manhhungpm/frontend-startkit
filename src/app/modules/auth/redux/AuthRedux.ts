@@ -29,7 +29,7 @@ export interface IAuthState {
 }
 
 export const reducer = persistReducer(
-  {storage, key: 'v100-demo2-auth', whitelist: ['user', 'accessToken']},
+  {storage, key: 'v100-demo1-auth', whitelist: ['user', 'accessToken']},
   (state: IAuthState = initialAuthState, action: ActionWithPayload<IAuthState>) => {
     switch (action.type) {
       case actionTypes.Login: {

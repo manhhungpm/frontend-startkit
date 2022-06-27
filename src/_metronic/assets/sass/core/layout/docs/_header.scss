@@ -4,23 +4,23 @@
 
 // Desktop mode
 @include media-breakpoint-up(lg) {
-	.docs-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+  .docs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 // Tablet & mobile modes
 @include media-breakpoint-down(lg) {
-	.docs-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+  .docs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-		// Page title
-		.docs-page-title[data-kt-swapper="true"]{
-			display: none !important;
-		}
-	}
+    // Page title
+    .docs-page-title[data-kt-swapper='true'] {
+      display: none !important;
+    }
+  }
 }
